@@ -1,11 +1,18 @@
 # eth-counterparties
 List Ethereum account counterparties induxed by the transaction graph
 
-Using [Alethio's API](https://aleth.io/products/api) for Ethereum data.
+### Data sourcing
+
+Using [Alethio's API](https://docs.aleth.io/api) for fetching Ethereum data.
+
+API Key not required, but preferable for higher throughputs.
+
+### Setup
 
 Runs on native Python3, no external libraries required.
+Clone the repository and launch the scanner.
 
-Example:
+### Example
 
 ```bash
 $ python scan.py 0x6ad1b274fbe64984945d1ec454610332352c3e0b --days=1
