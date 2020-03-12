@@ -52,7 +52,7 @@ def fetch_account_counterparties_after(account, date):
         counterparties.add(tx['relationships']['from']['data']['id'])
         counterparties.add(tx['relationships']['to']['data']['id'])
         tx_count += 1
-    counterparties.remove(account)
+    counterparties.discard(account)
     print('\n  {} counterparties found in {} transactions'.format(
         len(counterparties), tx_count), file=sys.stderr)
     return counterparties
@@ -63,7 +63,7 @@ def scan_account(account, days):
         for address in lines:
             print(address)
 
-    date_cutoff = datetime.utcnow() - timedelta(days=7)
+    date_cutoff = datetime.utcnow() - timedelta(days=days)
     seed_counterparties = fetch_account_counterparties_after(account, date_cutoff)
     print_lines(seed_counterparties)
 
